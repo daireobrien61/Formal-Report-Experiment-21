@@ -1,6 +1,0 @@
-@article{FormalReport,
-    author = {Daire O'Brien},
-    title = {To Measure Planck's Constant},
-    copyright = {},
-    source = {}
-}
