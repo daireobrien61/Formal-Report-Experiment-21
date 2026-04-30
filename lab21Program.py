@@ -1,5 +1,6 @@
 import numpy as np
 from PIL import Image
+import matplotlib.pyplot as plt
 
 def importFiles(fileName) -> np.array:
     with open(fileName, "r") as file:
@@ -13,8 +14,8 @@ run1Power = importFiles(r"C:\Users\daire\Documents\Aether sims\RayTracerLamberta
 
 run2Hitcount = importFiles(r"C:\Users\daire\Documents\Aether sims\RayTracerLambertainSourceRun2 - Hitcounts.txt")
 run1Hitcount = importFiles(r"C:\Users\daire\Documents\Aether sims\RayTracerLambertainSourceRun1 - Hitcounts.txt")
-diff = run1Hitcount/run1Hitcount.max() - run2Hitcount/run2Hitcount.max()
-print(diff.max())
-image = Image.fromarray(diff*225)
 
-image.show("Difference")
+diffPowers = run1Power - run2Power
+diffHitcounts = run1Hitcount - run2Hitcount
+plt.plot(range(0,101), diffPowers[34])
+plt.show()
