@@ -74,7 +74,7 @@
     \addcontentsline{toc}{section}{Abstract}
 
     \section*{Abstract}
-        The value of Planck's Constant $h$ was measured by analysing the voltage generated when photons of differing wavelenghts strike a caesium cathode. The value of $\qty{6.55(0.387)E-34}{\J\per\H}$ was found, which agrees with the defined value of $\qty{6.62607015E-34}{\J\per\H}$ \reference{reference:plancksConstant}{NIST}{2022}. 
+        The value of Planck's Constant $h$ was measured by analysing the voltage generated when photons of differing wavelenghts strike a caesium cathode. The value of $\qty{6.55(0.387)E-34}{\J\per\H}$ was found, which agrees with the defined value of $\qty{6.62607015E-34}{\J\per\H}$ \reference{reference:plancksConstant}{NIST}{2022}. The work function of Caesium was found to be $\qty{1.91(0.13)}{\eV}$, which conforms to the expected value of $\qty{1.95}{\eV}$.
 
     \section{Introduction}
         \subsection{Background}
@@ -108,7 +108,6 @@
                 \begin{equation}\label{workFunctionEquation}
                     \phi = eV_{Stopping} - hf
                 \end{equation}
-    \newpage
     \section{Experiment}
         \subsection{Apparatus}
             \begin{itemize}
@@ -280,22 +279,33 @@
                 \caption{Set up within Selene.}\label{aetherSimSetup}
             \end{figure}}
             The cylinder, in white, models the photocathode. Selene is still in development so there isn't any way to model a simple, curved surface like the photocathode. To get around this the Lambertian source is placed inside the cylinder. The throw of light is $\qty{180}{\degree}$, which is not changeable. In order to not cause abberations in the later analysis stage the source was placed at the center of curvature for the surface and thus the center of the cylinder. In the real setup the source of light is beyond the center of curvature for the photocathode, however the arguments ultimately remain the same. By setting the cylinder to be act as a transparent sensor, information like ray hit distributions on it's surface could be recorded. Then, using Aether's raytracing analysis tool, the distribution of photons accross the inside of the cylinder can be found. \\~\par
-            Two raytracing simulations were ran. One had the souce intensity set to 1 and the other to 0.5.
+            Two raytracing simulations were ran. One had the souce intensity set to 1 and the other to 0.5. The results from the two runs are shown in table \ref{distributionGraphs}
             \begin{table}
-            \centering
-            \begin{tabular}{|cc|}
-                \hline
-                Full power run & Half power run \\[0.2px]
-                \hline ~&~[0.3px]
-                \includegraphics[width=0.5\textwidth]{FPHitDistribution.png} & \includegraphics[width=0.5\textwidth]{HPHitDistribution.png} \\
-                \multicolumn{2}{|c|}{Power distribution}
-                \\[0.2ex]\hline ~ & ~\\[0.3px]
-                \includegraphics[width=0.5\textwidth]{FPHitDistribution.png} & \includegraphics[width=0.5\textwidth]{HPHitDistribution.png}
-            \end{tabular}
+                \centering
+                \begin{tabular}{|cc|}
+                    \hline
+                    Full power run & Half power run \\[0.2px]
+                    \hline ~&~\\[0.3px]
+                    \includegraphics[width=0.45\textwidth]{FPPowerDistribution.png} & \includegraphics[width=0.45\textwidth]{HPPowerDistribution} \\
+                    \multicolumn{2}{|c|}{Power distributions}
+                    \\[0.2ex]\hline ~ & ~\\[0.3px]
+                    \includegraphics[width=0.45\textwidth]{FPHitDistribution.png} & \includegraphics[width=0.45\textwidth]{HPHitDistribution.png} \\
+                    \multicolumn{2}{|c|}{Hit distributions} \\
+                    \hline
+                \end{tabular}
+                \caption{Recorded power and hit distributions for the two runs.}\label{distributionGraphs}
             \end{table}
-            
+            %\lstinputlisting[language=Python, numbers=left, showstringspaces=false, captionpos=b, caption={Code used to generate the graphs}]{lab21program.py}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=0.9\textwidth]{PowerHitcountDistributions}
+                    \caption{}
+                \end{figure}
+            \FloatBarrier 
     \section{Discussion}
         The design of the photoelectric tube wasn't optimal for this experiment. The spread of the photons, quantified as a bell curve, adversily affected the results. This error could've been reduced by collimating the LED light, reducing the amount of spread and, thus, the experimental error. 
+
+        Depending on the source the accepted value of caesium differed. Some, like source \ref{reference:workFunction} listed it as being $\qty{1.95}{\eV}$. Source \ref{reference:plancksConstant} listed it as being around $\qty{2}{\eV}$. As 
 
     \section{Conclusion}
         The value of Planck's constant was found to be $\qty{6.54(0.39)E-34}{\J\per\H}$, which conforms to the defined value of $\qty{6.62607015E-34}{\J\per\H}$ \reference{reference:plancksConstant}{NIST}{2022}. The work function was determined to be $\qty{1.91(0.13)}{\eV}$, which agrees to the acccepted value of $\qty{1.95}{\eV}$
@@ -303,8 +313,6 @@
     \section*{Notes}
         This document was compiled using \LaTeX. Websites like Overleaf (\underline{www.overleaf.com/learn}), The TEX Stackexchange (\underline{tex.stackexchange.com}) and each package's documentation on their respective CTAN (\underline{www.ctan.org}) pages were referenced heavily for good practice and specific commands. Where possible the links to specific answers have been included in the source code as comments. The circuit diagram was made using Paul Falstad's circuit simulator (\underline{www.falstad.com/circuit}). The ray tracing simulations were done using the Aether optics simulation suite (\underline{aether.utt.fr}), specifically their ray tracer Selene and analysis programs.
     \addcontentsline{toc}{section}{References}
-    %\lstinputlisting[language=Python, numbers=left, showstringspaces=false]{ep305Ass1_24365676.py}
-    %REMOVE IF CODE NOT GONNA WORK
     \section*{References}
     %https://tex.stackexchange.com/questions/42905/enumerated-list-with-square-brackets
         \begin{enumerate}[label={[\arabic*]}]
